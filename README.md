@@ -22,13 +22,12 @@
 - You should not be access other Routes without Login
 - If token is not present, redirect user to login page
 - Logout Feature 
+- Feed Feature 
 - Profile Feature 
+- Edited Profile Feature
+- Show Toast Message  on save profile
+- See all My connections
 - 
-- 
-
-
-
-
 
 
 

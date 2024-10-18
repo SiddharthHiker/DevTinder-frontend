@@ -24,7 +24,6 @@ const Login = () => {
         },
         { withCredentials: true }
       );
-      console.log(res);
       if (res.status === 200) {
         console.log("Login successful", res.data); 
         dispatch(addUser(res.data));
