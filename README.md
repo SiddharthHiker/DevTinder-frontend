@@ -26,8 +26,16 @@
 - Profile Feature 
 - Edited Profile Feature
 - Show Toast Message  on save profile
-- See all My connections
-- 
+- New page - See all My connections
+- New page - see all my Connection Request
+- Feature -Accept /Reject Connection Request
+
+
+-- Remaining 
+ - Send/Ignore the user card from Feed
+ - Signup New User
+ - End to end Testing 
+ - 
 
 
 
