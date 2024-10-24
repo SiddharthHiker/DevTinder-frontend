@@ -9,9 +9,9 @@ const EditProfile = ({ user }) => {
   const [firstName, setFirstName] = useState(user.firstName);
   const [lastName, setLastName] = useState(user.lastName);
   const [photoUrl, setPhotoUrl] = useState(user.photoUrl);
-  const [age, setAge] = useState(user.age);
-  const [gender, setGender] = useState(user.gender);
-  const [about, setAbout] = useState(user.about);
+  const [age, setAge] = useState(user.age || "");
+  const [gender, setGender] = useState(user.gender || "");
+  const [about, setAbout] = useState(user.about || "");
   const [error, setError] = useState("");
   const dispatch = useDispatch();
   const [showToast, setShowToast] = useState(false);
@@ -49,6 +49,7 @@ const EditProfile = ({ user }) => {
             <div className="card-body">
               <h2 className="card-title justify-center">Edit Profile</h2>
               <div>
+                {/* First Name Input */}
                 <label className="form-control w-full max-w-xs my-2">
                   <div className="label">
                     <span className="label-text">First Name:</span>
@@ -61,6 +62,8 @@ const EditProfile = ({ user }) => {
                     onChange={(e) => setFirstName(e.target.value)}
                   />
                 </label>
+
+                {/* Last Name Input */}
                 <label className="form-control w-full max-w-xs my-2">
                   <div className="label">
                     <span className="label-text">Last Name:</span>
@@ -73,6 +76,8 @@ const EditProfile = ({ user }) => {
                     onChange={(e) => setLastName(e.target.value)}
                   />
                 </label>
+
+                {/* Photo URL Input */}
                 <label className="form-control w-full max-w-xs my-2">
                   <div className="label">
                     <span className="label-text">Photo URL:</span>
@@ -85,6 +90,8 @@ const EditProfile = ({ user }) => {
                     onChange={(e) => setPhotoUrl(e.target.value)}
                   />
                 </label>
+
+                {/* Age Input */}
                 <label className="form-control w-full max-w-xs my-2">
                   <div className="label">
                     <span className="label-text">Age:</span>
@@ -97,6 +104,8 @@ const EditProfile = ({ user }) => {
                     onChange={(e) => setAge(e.target.value)}
                   />
                 </label>
+
+                {/* Gender Dropdown */}
                 <label className="form-control w-full max-w-xs my-2">
                   <div className="label">
                     <span className="label-text">Gender:</span>
@@ -106,11 +115,16 @@ const EditProfile = ({ user }) => {
                     className="select select-bordered w-full max-w-xs"
                     onChange={(e) => setGender(e.target.value)}
                   >
+                    <option value="" disabled>
+                      Select your gender
+                    </option>
                     <option value="male">male</option>
                     <option value="female">female</option>
                     <option value="other">other</option>
                   </select>
                 </label>
+
+                {/* About Text Area */}
                 <label className="form-control w-full max-w-xs my-2">
                   <div className="label">
                     <span className="label-text">About:</span>
@@ -124,7 +138,11 @@ const EditProfile = ({ user }) => {
                   />
                 </label>
               </div>
-              <p className="text-red-500">{error}</p>
+
+              {/* Error Message */}
+              {error && <p className="text-red-500">{error}</p>}
+
+              {/* Save Button */}
               <div className="card-actions justify-center">
                 <button className="btn btn-primary" onClick={saveProfile}>
                   Save Profile
@@ -133,10 +151,14 @@ const EditProfile = ({ user }) => {
             </div>
           </div>
         </div>
+
+        {/* Display User Information */}
         <UserCard
           user={{ firstName, lastName, photoUrl, age, gender, about }}
         />
       </div>
+
+      {/* Toast Notification */}
       {showToast && (
         <div className="toast toast-top toast-center">
           <div className="alert alert-success">

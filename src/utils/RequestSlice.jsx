@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const requestSlice = createSlice({
     name:"requests",
     initialState: null,
@@ -13,6 +14,6 @@ const requestSlice = createSlice({
 });
 
 
-export const {addRequests,removeRequest } = requestSlice.actions;
+export const {addRequests, removeRequest } = requestSlice.actions;
 
 export default requestSlice.reducer;

@@ -11,10 +11,12 @@ const Connections = () => {
     try {
       const res = await axios.get(BASE_URL + "/user/connection", {
         withCredentials: true,
+        
       });
+      console.log("API Response: ", res.data);
       dispatch(addConnections(res.data.data));
     } catch (err) {
-      // Handle error case
+      console.error("Error fetching connections:", err);
     }
   };
   useEffect(() => {
@@ -30,10 +32,10 @@ const Connections = () => {
       <h1 className="text-blod text-white text-3xl">Connections</h1>
 
       {connections.map((connection) => {
-        const { firstName, lastName, photoUrl, age, gender, about } =
+        const {_id, firstName, lastName, photoUrl, age, gender, about } =
           connection;
         return (
-          <div className=" flex m-4 p-4  rounded-lg bg-base-300 w-1/2 mx-auto">
+          <div key={_id || Math.random()} className=" flex m-4 p-4  rounded-lg bg-base-300 w-1/2 mx-auto">
             <div>
               <img
                 alt="photo"

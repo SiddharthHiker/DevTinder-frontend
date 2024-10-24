@@ -29,10 +29,11 @@
 - New page - See all My connections
 - New page - see all my Connection Request
 - Feature -Accept /Reject Connection Request
+- Send/Ignore the user card from Feed
 
 
 -- Remaining 
- - Send/Ignore the user card from Feed
+ 
  - Signup New User
  - End to end Testing 
  - 
